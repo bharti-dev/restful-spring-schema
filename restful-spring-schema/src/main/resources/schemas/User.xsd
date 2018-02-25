@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:ums="http://bharti.com/restfulws/services/user" 
+  targetNamespace="http://bharti.com/restfulws/services/user/User" 
+  elementFormDefault="qualified"	version="1.0.0">
+
+  <import schemaLocation="UserMaintenanceService.xsd" namespace="http://bharti.com/restfulws/services/user" />
+
+  <complexType name="UserType">
+    <sequence>
+      <element name="Id"          		type="long"         minOccurs="0"/>
+      <element name="FirstName"        	type="string" 		minOccurs="0"/>
+      <element name="MiddleName"       	type="string" 		minOccurs="0"/>
+      <element name="LastName"			type="string"		minOccurs="0"/>
+      <element name="Age"               type="int"		    minOccurs="0"/>
+      <element name="Address" 			type="ums:AddressType" minOccurs="0" />
+      <any minOccurs="0" maxOccurs="unbounded" processContents="lax" namespace="##other"/>
+    </sequence>
+  </complexType>
+  
+</schema>

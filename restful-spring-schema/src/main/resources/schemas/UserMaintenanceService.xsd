@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+  xmlns="http://www.w3.org/2001/XMLSchema" 
+  xmlns:usr="http://bharti.com/restfulws/services/user/User" 
+  xmlns:tns="http://bharti.com/restfulws/services/user"
+  targetNamespace="http://bharti.com/restfulws/services/user" 
+  elementFormDefault="qualified" version="1.0.0">
+
+  <import schemaLocation="User.xsd"	namespace="http://bharti.com/restfulws/services/user/User"/>
+  
+  <element name="CreateUserRQ"	type="tns:CreateUserRQType"/>
+  <element name="CreateUserRS"	type="tns:CreateUserRSType"/>
+   
+  <complexType name="CreateUserRQType">
+    <sequence>
+      <element name="User"	type="usr:UserType"/>
+      <any minOccurs="0" maxOccurs="unbounded" processContents="lax" namespace="##other"/>
+    </sequence>
+  </complexType>
+  
+  <complexType name="AddressType">
+  	<sequence>
+  		<element name="AddressFirstLine" type="string" />
+  		<element name="AddressSecondLine" type="string" minOccurs="0"/>
+  		<element name="AddressThirdLine" type="string" minOccurs="0" />
+  		<element name="PinCode" type="string" />
+  		<element name="City" type="string" />
+  		<element name="State" type="string" />
+  	</sequence>
+  </complexType>
+  
+
+  <complexType name="CreateUserRSType">
+    <sequence>
+      <element name="User"	type="usr:UserType"	minOccurs="0"/>
+      <any minOccurs="0" maxOccurs="unbounded" processContents="lax" namespace="##other"/>
+    </sequence>
+  </complexType>
+
+</schema>
